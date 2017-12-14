@@ -1,0 +1,259 @@
+<!--
+  Generated template for the TeamHubPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-top>
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="cog"></ion-icon>
+      </button>
+
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-uppercase text-center>Team Hub</ion-title>
+  </ion-navbar>
+
+
+  <ion-toolbar color="white">
+    <div id="yas-bot">
+      <div class="chat-bot">
+        <ion-grid no-padding="">
+          <ion-row>
+            <ion-col>
+              <img alt="logo" width="20px" height="20px" src="./assets/imgs/logo_bg_w_motto.jpg">
+            </ion-col>
+            <ion-col>
+              <label>
+                yas
+              </label>
+              <ion-card class="chat">
+                <p>
+                  Here is the best availabilities for <b> Eagles Team</b> this week:
+                </p>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <div id="message-wrap">
+    <!--<div
+         *ngFor="let message of messages"
+         [ngClass]="message.message_id == 210000198410281948 ? 'message left' :'message right'"
+    >
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img width="20px" height="20px" src="{{message.user_avatar}}">
+            </ion-img>
+          </ion-col>
+          <ion-col>
+            <label>
+              {{message.user_name}} - <span class="position">mid</span>
+            <ion-icon name="star"></ion-icon>
+            </label>
+            <ion-card>
+              <p>
+                {{message.message}}
+              </p>
+            </ion-card>
+            <span class="date-time">
+              {{message.time| date:'h:mm a' }}
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>-->
+
+    <div class="message left">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            </ion-img>
+          </ion-col>
+          <ion-col>
+            <label>
+              Marc - <span class="position">mid</span>
+              <ion-icon name="star"></ion-icon>
+            </label>
+            <ion-card>
+              <p>
+                Awesome Boyz! I'm going for saturday at 3pm... Sorry Charles :/
+              </p>
+            </ion-card>
+            <span class="date-time">
+              10:15 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="left declaration">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            </ion-img>
+          </ion-col>
+          <ion-col>
+            <p><span class="user"> Marc</span> has selected</p>
+            <span class="date-time">
+              10:15 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message right">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>
+            </label>
+            <ion-card>
+              <p>
+                Come on! We didn't agree on that!
+              </p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message right">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>
+            </label>
+            <ion-card>
+              <p>
+                Come on! We didn't agree on that!
+              </p>
+            </ion-card>
+            <span class="date-time">
+              10:16 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message left">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            </ion-img>
+          </ion-col>
+          <ion-col>
+            <label>
+              Marc - <span class="position">mid</span>
+              <ion-icon name="star"></ion-icon>
+            </label>
+            <ion-card>
+              <p>
+                Awesome Boyz! I'm going for saturday at 3pm... Sorry Charles :/
+              </p>
+            </ion-card>
+            <span class="date-time">
+              10:15 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message right">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>
+            </label>
+            <ion-card>
+              <p>
+                Come on! We didn't agree on that!
+              </p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message right">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <label>
+            </label>
+            <ion-card>
+              <p>
+                Come on! We didn't agree on that!
+              </p>
+            </ion-card>
+            <span class="date-time">
+              10:16 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="message left">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            </ion-img>
+          </ion-col>
+          <ion-col>
+            <label>
+              Marc - <span class="position">mid</span>
+              <ion-icon name="star"></ion-icon>
+            </label>
+            <ion-card>
+              <p>
+                Awesome Boyz! I'm going for saturday at 3pm... Sorry Charles :/
+              </p>
+            </ion-card>
+            <span class="date-time">
+              10:15 am
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+<ion-footer no-border id="chat-sender" style="background: white;">
+  <form (ngSubmit)="send()">
+    <ion-grid no-padding="">
+      <ion-row>
+        <ion-col id="chat-add-image">
+          <button ion-button clear icon-only item-right>
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col>
+          <ion-input placeholder="Start typing something..." type="text" [(ngModel)]="message" name="message">
+          </ion-input>
+        </ion-col>
+        <ion-col id="chat-sent">
+          <button ion-button clear icon-only item-right>
+            <ion-icon name="send"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-footer>

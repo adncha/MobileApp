@@ -1,0 +1,153 @@
+page-games
+{
+
+  h3.date
+  {
+    text-align     : center;
+    text-transform : none;
+    font-weight    : 900;
+    font-size      : 18px;
+    color          : color($colors, 'primary');
+  }
+
+  ion-card
+  {
+    ion-col
+    {
+      align-self : center;
+    }
+    ion-col.game-image
+    {
+      align-self : center;
+      flex : 0 0 30px;
+      ion-img
+      {
+        img
+        {
+          height        : 30px;
+          border-radius : 100%;
+        }
+      }
+    }
+
+    ion-col.game-info
+    {
+      align-self : center;
+      p.venue-name
+      {
+        font-size      : 11px;
+        text-transform : none;
+      }
+      p.venue-info
+      {
+        font-size : 8px;
+
+      }
+    }
+
+    ion-col.game-time
+    {
+      flex           : 0 0 50px;
+      text-align     : center;
+      vertical-align : middle;
+
+      span.time
+      {
+        font-size   : 25px;
+        font-weight : 900;
+        color       : color($colors, 'primary');
+      }
+    }
+
+    ion-row
+    {
+
+      &:last-child
+      {
+        border-top : solid 1px color($colors, 'light');
+      }
+
+      ion-col.game-teams
+      {
+        .team-img
+        {
+          display        : inline-block;
+          vertical-align : middle;
+          ion-img
+          {
+            min-width     : 40px;
+            min-height    : 40px;
+            border-radius : 100%;
+            box-shadow    : 1px 1px 1px rgba(0, 0, 0, 0.20);
+            img
+            {
+              border-radius : 100%;
+              width         : 40px;
+              height        : 40px;
+
+            }
+          }
+        }
+        .team-info
+        {
+          padding        : 5px;
+          display        : inline-block;
+          vertical-align : middle;
+          p.team-name
+          {
+            margin    : 0;
+            font-size : 12px;
+          }
+
+          p.team-category
+          {
+            margin      : 0;
+            font-size   : 10px;
+            font-weight : 900;
+            color       : color($colors, 'secondary');
+
+          }
+        }
+
+        &.right
+        {
+          text-align : right;
+        }
+      }
+
+      ion-col.team-img
+      {
+        flex : 0 0 30px;
+        ion-img
+        {
+          img
+          {
+            border-radius : 100%;
+            height        : 30px;
+            width         : 30px;
+          }
+        }
+
+      }
+
+      ion-col.game-vs
+      {
+        flex           : 0 0 30px;
+        text-align     : center;
+        font-weight    : 900;
+        color          : color($colors, 'primary');
+        vertical-align : middle;
+      }
+
+    }
+
+    ~ .game-expiration
+    {
+      margin-top   : -5px;
+      padding-left : 14px;
+      font-size    : 10px;
+      color        : color($colors, 'secondary');
+    }
+  }
+
+}

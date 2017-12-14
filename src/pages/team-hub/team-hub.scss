@@ -1,0 +1,277 @@
+page-team-hub
+{
+
+  ion-footer
+  {
+    background-color : #FFFFFF;
+  }
+
+  .scroll-content
+  {
+    overflow       : auto;
+    display        : flex;
+    flex-direction : column-reverse;
+  }
+
+  #chat-sender
+  {
+
+    padding : 2px 0;
+
+    form
+    {
+      padding    : 0;
+      margin     : 0;
+      background : transparent;
+      *
+      {
+        background : transparent;
+      }
+    }
+    ion-col
+    {
+
+      ion-input
+      {
+
+        vertical-align : middle;
+        height         : 100%;
+        display        : block;
+        input
+        {
+
+          color   : color($colors, 'primary');
+
+          &::placeholder
+          {
+            color : color($colors, 'secondary');
+          }
+          margin  : 0;
+          height  : 100%;
+          display : block;
+        }
+      }
+
+      &:first-child,
+      &:last-child
+      {
+        flex : 0 0 20px;
+        ion-icon
+        {
+          font-size : 20px;
+        }
+      }
+    }
+  }
+
+  #yas-bot
+  {
+    padding-bottom : 5px;
+    ion-col
+    {
+      &:first-child
+      {
+        img
+        {
+          margin-top    : 20px;
+          border-radius : 100%;
+          object-fit    : cover;
+        }
+        flex : 0 0 30px;
+      }
+      &:nth-child(2)
+      {
+        label
+        {
+          font-size      : 12px;
+          line-height    : 20px;
+          padding        : 0;
+          display        : block;
+          font-weight    : 900;
+          text-transform : uppercase;
+        }
+        ion-card
+        {
+          background     : white;
+          text-transform : none;
+          padding        : 5px;
+          margin         : 0;
+
+          p
+          {
+            font-size : 14px;
+            color     : color($colors, 'primary');
+          }
+        }
+      }
+    }
+  }
+
+  #message-wrap
+  {
+    .message
+    {
+      ion-grid
+      {
+        padding : 0;
+      }
+
+      &.left
+      {
+
+        ion-grid
+        {
+          width : 95%;
+          float : left;
+        }
+        ion-col
+        {
+          &:first-child
+          {
+            padding : 0;
+            flex    : 0 0 15px;
+            ion-img
+            {
+              margin-top    : 25px;
+              border-radius : 100%;
+              box-shadow    : 1px 1px 1px rgba(0, 0, 0, 0.31);
+              img
+              {
+
+                border-radius : 100%;
+              }
+            }
+          }
+
+          &:nth-child(2)
+          {
+            label
+            {
+              font-size : 12px;
+              color     : color($colors, 'primary');
+              span
+              {
+                font-size      : 10px;
+                font-weight    : 900;
+                vertical-align : middle;
+              }
+              ion-icon
+              {
+                color       : $yellow;
+                text-shadow : 1px 1px 1px rgba(0, 0, 0, 0.31);
+              }
+            }
+
+            ion-card
+            {
+              margin         : 0;
+              padding        : 7px 5px;
+              text-transform : none;
+              p
+              {
+                font-weight : 300;
+              }
+            }
+            span.date-time
+            {
+              text-transform : uppercase;
+              font-size      : 10px;
+              color          : color($colors, 'primary');
+
+            }
+          }
+        }
+      }
+
+      &.right
+      {
+        ion-grid
+        {
+          width : 80%;
+          float : right;
+        }
+
+        ion-card
+        {
+          margin         : 0;
+          padding        : 7px 5px;
+          text-transform : none;
+          background     : color($colors, 'primary');
+          text-align     : left;
+          p
+          {
+            color       : white;
+            font-weight : 400;
+          }
+        }
+        span.date-time
+        {
+          text-transform : uppercase;
+          font-size      : 10px;
+          color          : color($colors, 'primary');
+
+        }
+      }
+    }
+
+    .declaration
+    {
+
+      ion-grid
+      {
+        padding : 0;
+      }
+
+      &.left
+      {
+
+        ion-grid
+        {
+          width : 95%;
+          float : left;
+        }
+        ion-col
+        {
+          &:first-child
+          {
+            padding : 0;
+            flex    : 0 0 15px;
+            ion-img
+            {
+              border-radius : 100%;
+              box-shadow    : 1px 1px 1px rgba(0, 0, 0, 0.31);
+              img
+              {
+
+                border-radius : 100%;
+              }
+            }
+          }
+
+          &:nth-child(2)
+          {
+            p
+            {
+              margin         : 0;
+              font-size      : 14px;
+              text-transform : none;
+              color          : color($colors, 'primary');
+
+              span
+              {
+                text-decoration : underline;
+              }
+            }
+
+            span.date-time
+            {
+              text-transform : uppercase;
+              font-size      : 10px;
+              color          : color($colors, 'primary');
+            }
+          }
+        }
+      }
+    }
+  }
+}
