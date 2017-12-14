@@ -1,8 +1,14 @@
 {
   "name": "conferenceApp",
-  "app_id": "",
+  "app_id": "70058f19",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://adnane.spotfields.com/api"
+    }
+  ]
 }

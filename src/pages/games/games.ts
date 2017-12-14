@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ChangeDetectorRef, ChangeDetectionStrategy, Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 
 /**
  * Generated class for the GamesPage page.
@@ -12,14 +13,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-games',
   templateUrl: 'games.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class GamesPage {
+  games: object[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private http: HttpClient,
+              public changeDetector: ChangeDetectorRef) {
+    
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GamesPage');
+
+    this.http.get('/api/games_getAll').subscribe(
+      (data: object[]) => {
+        this.changeDetector.markForCheck();
+        this.games = data;
+        console.log(this.games);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          // A client-side or network error occurred. Handle it accordingly.
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          console.log(`Backend returned code ${err.status}, body was: ${err.error}`);
+
+        }
+      })
+
   }
 
 }

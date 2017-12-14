@@ -1,23 +1,24 @@
-import { Component, ViewChild } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 
-import { Events, MenuController, Nav, Platform } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {Events, MenuController, Nav, Platform} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
 
-import { Storage } from '@ionic/storage';
+import {Storage} from '@ionic/storage';
 
-import { AboutPage } from '../pages/about/about';
-import { AccountPage } from '../pages/account/account';
-import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs-page/tabs-page';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
-import { SupportPage } from '../pages/support/support';
+import {AboutPage} from '../pages/about/about';
+import {AccountPage} from '../pages/account/account';
+import {LoginPage} from '../pages/login/login';
+import {MapPage} from '../pages/map/map';
+import {SignupPage} from '../pages/signup/signup';
+import {TabsPage} from '../pages/tabs-page/tabs-page';
+import {TutorialPage} from '../pages/tutorial/tutorial';
+import {SchedulePage} from '../pages/schedule/schedule';
+import {SpeakerListPage} from '../pages/speaker-list/speaker-list';
+import {SupportPage} from '../pages/support/support';
 
-import { ConferenceData } from '../providers/conference-data';
-import { UserData } from '../providers/user-data';
+import {ConferenceData} from '../providers/conference-data';
+import {UserData} from '../providers/user-data';
+import {TeamHubPage} from "../pages/team-hub/team-hub";
 
 export interface PageInterface {
   title: string;
@@ -42,38 +43,50 @@ export class ConferenceApp {
   // the left menu only works after login
   // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar' },
-    { title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts' },
-    { title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map' },
-    { title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle' }
+    {title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar'},
+    {
+      title: 'Speakers',
+      name: 'TabsPage',
+      component: TabsPage,
+      tabComponent: SpeakerListPage,
+      index: 1,
+      icon: 'contacts'
+    },
+    {title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map'},
+    {
+      title: 'About',
+      name: 'TabsPage',
+      component: TabsPage,
+      tabComponent: AboutPage,
+      index: 3,
+      icon: 'information-circle'
+    }
   ];
   loggedInPages: PageInterface[] = [
-    { title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
+    {title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person'},
+    {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'},
+    {title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true}
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
-    { title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help' },
-    { title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
+    {title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in'},
+    {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'},
+    {title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add'}
   ];
   rootPage: any;
 
-  constructor(
-    public events: Events,
-    public userData: UserData,
-    public menu: MenuController,
-    public platform: Platform,
-    public confData: ConferenceData,
-    public storage: Storage,
-    public splashScreen: SplashScreen
-  ) {
+  constructor(public events: Events,
+              public userData: UserData,
+              public menu: MenuController,
+              public platform: Platform,
+              public confData: ConferenceData,
+              public storage: Storage,
+              public splashScreen: SplashScreen) {
 
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
         if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
+          this.rootPage = TeamHubPage;
         } else {
           this.rootPage = TutorialPage;
         }
@@ -99,7 +112,7 @@ export class ConferenceApp {
     // setRoot on the nav to remove previous pages and only have this page
     // we wouldn't want the back button to show in this scenario
     if (page.index) {
-      params = { tabIndex: page.index };
+      params = {tabIndex: page.index};
     }
 
     // If we are already on tabs just change the selected tab

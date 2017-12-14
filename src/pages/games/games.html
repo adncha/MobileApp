@@ -9,375 +9,69 @@
     <ion-title text-center="">games</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
   <h3 class="date">
     Saturday 20
   </h3>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
+  <ion-list [virtualScroll]="games" [approxItemHeight]="'100px'" [approxItemWidth]="'297px'">
+    <ion-card *virtualItem="let game">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="game-image">
+            <img src="{{game.venue_avatar}}">
+          </ion-col>
+          <ion-col class="game-info">
+            <p class="venue-name">
+              {{game.venue_name}}
             </p>
-            <p class="team-category">
-              comp
+            <p class="venue-info">
+              {{game.venue_size}} - {{game.venue_type}} - {{game.venue_localization}}
             </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="game-image">
-          <ion-img height="30" width="30" src="./assets/imgs/field_1.jpg">
-          </ion-img>
-        </ion-col>
-        <ion-col class="game-info">
-          <p class="venue-name">
-            Collège André Grasset
-          </p>
-          <p class="venue-info">
-            7 vs 7 - Parquet - Indoor
-          </p>
-        </ion-col>
-        <ion-col class="game-time">
-          <span class="time">
-            16:00
-          </span>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="game-teams left">
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_1.jpg">
-            </ion-img>
-          </div>
-          <div class="team-info">
-            <p class="team-name">
-              Eagles
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-        </ion-col>
-        <ion-col align-self-center class="game-vs">
-          VS
-        </ion-col>
-        <ion-col class="game-teams right">
-          <div class="team-info">
-            <p class="team-name">
-              Mickael
-            </p>
-            <p class="team-category">
-              comp
-            </p>
-          </div>
-          <div class="team-img">
-            <ion-img  src="./assets/imgs/team_2.jpeg">
-            </ion-img>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-  <div class="game-expiration">
-    <p>
-      Expire in: <b>13 h 34 min</b>
-    </p>
-  </div>
+          </ion-col>
+          <ion-col class="game-time">
+            <span class="time">
+              {{game.start_time}}
+            </span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="game-teams left">
+            <div class="team-img">
+              <img src="{{game.team_1_avatar}}">
+            </div>
+            <div class="team-info">
+              <p class="team-name">
+                {{game.team_1_name}}
+              </p>
+              <p class="team-category">
+                {{game.team_1_category}}
+              </p>
+            </div>
+          </ion-col>
+          <ion-col align-self-center class="game-vs" col-auto>
+            VS
+          </ion-col>
+          <ion-col class="game-teams right">
+            <div class="team-info">
+              <p class="team-name">
+                {{game.team_2_name}}
+              </p>
+              <p class="team-category">
+                {{game.team_2_category}}
+              </p>
+            </div>
+            <div class="team-img">
+              <img src="{{game.team_2_avatar}}">
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <div class="game-expiration">
+      <p>
+        Expire in: <b>13 h 34 min</b>
+      </p>
+    </div>
+  </ion-list>
 
 </ion-content>

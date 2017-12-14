@@ -1,0 +1,2 @@
+
+{ "name": "proxy-example", "app_id": "", "proxies": [ { "path": "/api", "proxyUrl": "http://adnane.spotfields/api/" } ] }

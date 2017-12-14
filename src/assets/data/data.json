@@ -1,5 +1,4 @@
 {
-
   "schedule": [{
     "date": "2047-05-17",
     "groups": [{
@@ -206,7 +205,6 @@
     }]
   }],
 
-
   "speakers": [{
     "name": "Burt Bear",
     "profilePic": "assets/img/speakers/bear.jpg",
@@ -326,7 +324,6 @@
     "id": "13"
   }],
 
-
   "map": [{
     "name": "Monona Terrace Convention Center",
     "lat": 43.071584,
@@ -341,5 +338,6 @@
     "lat": 43.07336,
     "lng": -89.38335
   }]
+
 
 }

@@ -30,7 +30,7 @@
         <ion-grid no-padding="">
           <ion-row>
             <ion-col>
-              <img alt="logo" width="20px" height="20px" src="./assets/imgs/logo_bg_w_motto.jpg">
+              <img alt="logo" width="20px" height="20px" src="./assets/img/demo/logo_bg_w_motto.jpg">
             </ion-col>
             <ion-col>
               <label>
@@ -51,9 +51,8 @@
 <ion-content padding>
 
   <div id="message-wrap">
-    <!--<div
-         *ngFor="let message of messages"
-         [ngClass]="message.message_id == 210000198410281948 ? 'message left' :'message right'"
+    <div
+      *ngFor="let message of messages | async"
     >
       <ion-grid>
         <ion-row>
@@ -64,7 +63,7 @@
           <ion-col>
             <label>
               {{message.user_name}} - <span class="position">mid</span>
-            <ion-icon name="star"></ion-icon>
+              <ion-icon name="star"></ion-icon>
             </label>
             <ion-card>
               <p>
@@ -77,13 +76,13 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </div>-->
+    </div>
 
     <div class="message left">
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            <ion-img width="20px" height="20px" src="./assets/img/demo/user_1.jpg">
             </ion-img>
           </ion-col>
           <ion-col>
@@ -107,7 +106,7 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
+            <ion-img width="20px" height="20px" src="./assets/img/demo/user_1.jpg">
             </ion-img>
           </ion-col>
           <ion-col>
@@ -119,7 +118,7 @@
         </ion-row>
       </ion-grid>
     </div>
-    <div class="message right">
+    <div *ngFor="let m of messages$| async" class="message right">
       <ion-grid>
         <ion-row>
           <ion-col>
@@ -127,107 +126,11 @@
             </label>
             <ion-card>
               <p>
-                Come on! We didn't agree on that!
-              </p>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="message right">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <label>
-            </label>
-            <ion-card>
-              <p>
-                Come on! We didn't agree on that!
+                {{m.message}}
               </p>
             </ion-card>
             <span class="date-time">
               10:16 am
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="message left">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
-            </ion-img>
-          </ion-col>
-          <ion-col>
-            <label>
-              Marc - <span class="position">mid</span>
-              <ion-icon name="star"></ion-icon>
-            </label>
-            <ion-card>
-              <p>
-                Awesome Boyz! I'm going for saturday at 3pm... Sorry Charles :/
-              </p>
-            </ion-card>
-            <span class="date-time">
-              10:15 am
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="message right">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <label>
-            </label>
-            <ion-card>
-              <p>
-                Come on! We didn't agree on that!
-              </p>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="message right">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <label>
-            </label>
-            <ion-card>
-              <p>
-                Come on! We didn't agree on that!
-              </p>
-            </ion-card>
-            <span class="date-time">
-              10:16 am
-            </span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-    <div class="message left">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-img width="20px" height="20px" src="./assets/imgs/user_1.jpg">
-            </ion-img>
-          </ion-col>
-          <ion-col>
-            <label>
-              Marc - <span class="position">mid</span>
-              <ion-icon name="star"></ion-icon>
-            </label>
-            <ion-card>
-              <p>
-                Awesome Boyz! I'm going for saturday at 3pm... Sorry Charles :/
-              </p>
-            </ion-card>
-            <span class="date-time">
-              10:15 am
             </span>
           </ion-col>
         </ion-row>
@@ -236,7 +139,7 @@
   </div>
 </ion-content>
 <ion-footer no-border id="chat-sender" style="background: white;">
-  <form (ngSubmit)="send()">
+  <form>
     <ion-grid no-padding="">
       <ion-row>
         <ion-col id="chat-add-image">
@@ -249,7 +152,7 @@
           </ion-input>
         </ion-col>
         <ion-col id="chat-sent">
-          <button ion-button clear icon-only item-right>
+          <button ion-button clear icon-only item-right (click)="sendMessage()">
             <ion-icon name="send"></ion-icon>
           </button>
         </ion-col>
