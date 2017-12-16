@@ -1,0 +1,109 @@
+page-game
+{
+  ion-row.game-bg
+  {
+    background : white;
+    ion-row.teams
+    {
+      background : rgba(19, 49, 75, 0.5);
+      text-align : center;
+      padding    : 10px 0;
+      ion-img, img
+      {
+        width         : 50px;
+        height        : 50px;
+        border-radius : 100%;
+      }
+      ion-col.team
+      {
+        font-weight : 900;
+        h3.team-name
+        {
+          font-weight    : 900;
+          text-transform : uppercase;
+          color          : white;
+          text-shadow    : 1px 1px 1px black;
+          padding: 0;
+          font-size: 15px;
+
+        }
+        h4.team-category
+        {
+          font-weight    : 900;
+          text-transform : uppercase;
+          color          : white;
+          font-size: 12px;
+          text-shadow    : 1px 1px 1px black;
+        }
+      }
+
+      ion-col.vs
+      {
+        font-size   : 40px;
+        font-weight : 900;
+        color       : white;
+      }
+    }
+
+    ion-row.game-datetime
+    {
+
+      ion-col.date
+      {
+
+      }
+
+      ion-col.time
+      {
+
+      }
+    }
+  }
+
+  ion-card.venue-card
+  {
+
+    h3.venue-name
+    {
+
+    }
+
+    p.venue-info
+    {
+
+    }
+
+    ion-col.venue-price
+    {
+
+    }
+  }
+
+  div.team-title
+  {
+
+  }
+
+  div.team-players
+  {
+
+    ion-card.player-card
+    {
+
+      p.player-name
+      {
+
+      }
+
+      p.player-position
+      {
+
+      }
+
+      div.is-captain
+      {
+
+      }
+    }
+  }
+}

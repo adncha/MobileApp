@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, ChangeDetectionStrategy, Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {GamePage} from "../game/game";
 
 /**
  * Generated class for the GamesPage page.
@@ -18,12 +19,13 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 })
 export class GamesPage {
   games: object[];
+  gamePage: object;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private http: HttpClient,
               public changeDetector: ChangeDetectorRef) {
-    
+    this.gamePage = GamePage;
   }
 
   ionViewDidLoad() {

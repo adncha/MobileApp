@@ -1,0 +1,137 @@
+<!--
+  Generated template for the game?.age page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{game?.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row class="game-bg"
+             [ngStyle]="{'background-image':'url('+game?.venue_avatar+')'}">
+      <ion-grid no-padding="">
+        <ion-row class="teams">
+          <ion-col class="team team-1">
+            <ion-avatar>
+              <ion-img src="{{game?.team_1_avatar}}">
+              </ion-img>
+            </ion-avatar>
+            <h3 class="team-name">
+              {{game?.team_1_name}}
+            </h3>
+            <h4 class="team-category">
+              {{game?.team_1_category}}
+            </h4>
+          </ion-col>
+          <ion-col class="vs" col-auto>
+            <span>
+              vs
+            </span>
+          </ion-col>
+          <ion-col class="team team-2">
+            <ion-avatar>
+              <ion-img src="{{game?.team_2_avatar}}">
+              </ion-img>
+            </ion-avatar>
+            <h3 class="team-name">
+              {{game?.team_2_name}}
+            </h3>
+            <h4 class="team-category">
+              {{game?.team_2_category}}
+            </h4>
+          </ion-col>
+        </ion-row>
+        <ion-row class="game-datetime">
+          <ion-col class="date">
+            {{game?.start}}
+          </ion-col>
+          <ion-col class="time">
+            {{game?.start_time}} - {{game?.end_time}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="venue-card">
+          <ion-row>
+            <ion-col>
+              <ion-avatar>
+                <ion-img src="{{game?.venue_avatar}}">
+                </ion-img>
+              </ion-avatar>
+            </ion-col>
+            <ion-col>
+              <h3 class="venue-name">
+                {{game?.venue_names}}
+              </h3>
+              <p class="venue-info">
+                {{game?.venue_size}} - {{game?.venue_type}} - {{game?.venue_localization}}
+              </p>
+              <button ion-button icon-start color="yellow">
+                <ion-icon name="map"></ion-icon>
+                map
+              </button>
+            </ion-col>
+            <ion-col class="venue-price">
+              <span>
+                {{game?.venue_price}}
+              </span>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col
+        *ngFor="let team of game?.teams"
+        [class]="index==1?'team-roster  team-roster-left':'team-roster team-roster-right'">
+        <div class="team-title">
+          <ion-avatar>
+            <ion-img src="{{team.avatar}}">
+            </ion-img>
+          </ion-avatar>
+          <h4>
+            {{team.name}}
+          </h4>
+        </div>
+        <div class="team-players">
+          <ion-card
+            *ngFor="let player of team.players"
+            class="player-card"
+            [navPush]="profilePage" [navParams]="{'user_id':player[0]}">
+            <ion-img [src]="player[5]">
+            </ion-img>
+            <p class="player-name">
+              {{player[1]}}
+            </p>
+            <p class="player-position">
+              {{ player[3] | slice :0:3}}
+            </p>
+            <div class="is-captain" *ngIf="player[4]=='1'">
+              <ion-icon name="star" color="yellow">
+              </ion-icon>
+            </div>
+          </ion-card>
+          <ion-card
+            *ngFor="let index of team.empty_spots"
+            class="player-card no-player">
+            <ion-img>
+            </ion-img>
+            <p>
+              reserved
+            </p>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
