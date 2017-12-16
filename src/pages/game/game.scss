@@ -1,15 +1,31 @@
 page-game
 {
+
+  img
+  {
+    object-fit : cover;
+  }
   ion-row.game-bg
   {
-    background : white;
+
+    ion-col
+    {
+      align-self : center;
+    }
+    background-size   : cover;
+    background-repeat : no-repeat;
     ion-row.teams
     {
       background : rgba(19, 49, 75, 0.5);
       text-align : center;
       padding    : 10px 0;
-      ion-img, img
+      ion-avatar
       {
+        text-align : center;
+      }
+      img
+      {
+        margin        : auto;
         width         : 50px;
         height        : 50px;
         border-radius : 100%;
@@ -23,23 +39,34 @@ page-game
           text-transform : uppercase;
           color          : white;
           text-shadow    : 1px 1px 1px black;
-          padding: 0;
-          font-size: 15px;
+          padding        : 0;
+          margin         : 0;
+          line-height    : 20px;
+          display        : block;
+          overflow       : hidden;
+          white-space    : nowrap;
+          text-overflow  : ellipsis;
+          height         : 20px;
+          font-size      : 16px;
 
         }
         h4.team-category
         {
-          font-weight    : 900;
+          font-weight    : 400;
           text-transform : uppercase;
           color          : white;
-          font-size: 12px;
+          font-size      : 12px;
+          margin         : 0;
+          padding        : 0;
           text-shadow    : 1px 1px 1px black;
         }
       }
 
       ion-col.vs
       {
-        font-size   : 40px;
+
+        font-size   : 20px;
+        text-shadow : 1px 1px 1px black;
         font-weight : 900;
         color       : white;
       }
@@ -47,62 +74,245 @@ page-game
 
     ion-row.game-datetime
     {
+      background  : rgba(14, 33, 53, 0.8);
+      border-top  : solid 1px white;
+      text-align  : center;
+      color       : white;
+      font-size   : 22px;
+      padding     : 5px 0;
+      font-weight : 200;
+      text-shadow : 1px 1px 1px black;
 
       ion-col.date
       {
 
       }
-
       ion-col.time
       {
-
+        font-weight : 900;
       }
     }
   }
 
   ion-card.venue-card
   {
-
-    h3.venue-name
+    ion-col
     {
-
+      align-self : center;
+    }
+    ion-img, img
+    {
+      border-radius : 100%;
+      width         : 40px;
+      height        : 40px;
     }
 
-    p.venue-info
+    ion-col:nth-child(2)
     {
+      text-align : left;
+      color      : color($colors, 'primary');
+      h3.venue-name
+      {
+        font-weight : 300;
+      }
 
+      p.venue-info
+      {
+        font-weight    : 900;
+        text-transform : uppercase;
+        font-size      : 10px;
+        height         : 12px;
+        text-overflow  : ellipsis;
+        overflow       : hidden;
+      }
+
+      ion-buttons
+      {
+
+        font-weight    : 900;
+        color          : white;
+        text-transform : uppercase;
+        font-size      : 10px;
+        line-height    : 12px;
+        span
+        {
+          padding     : 0;
+          line-height : 12px;
+        }
+      }
     }
 
     ion-col.venue-price
     {
+      font-size   : 30px;
+      font-weight : 900;
+      color       : color($colors, 'success');
 
+      sup
+      {
+        font-size : 15px;
+        padding   : 0;
+        margin    : 0;
+      }
     }
   }
 
-  div.team-title
+  .teams-rosters
   {
 
-  }
+    div.team-title
+    {
+      display       : block;
+      text-align    : center;
+      margin        : 0 8px;
+      background    : white;
+      padding       : 5px;
+      box-shadow    : 1px 1px 1px 1px rgba(0, 0, 0, 0.18);
+      border-radius : 2px;
+      > *
+      {
+        display : block;
+      }
 
-  div.team-players
-  {
+      img
+      {
+        display       : inline-block;
+        border-radius : 100%;
+        height        : 70px;
+        width         : 70px;
+        box-shadow    : 1px 1px 16px 3px rgba(0, 0, 0, 0.14);
+        margin        : 0;
+      }
+      h4
+      {
+        font-weight       : 400;
+        text-transform    : uppercase;
+        font-size         : 15px;
+        color             : color($colors, 'dark');
+        display           : block;
+        line-height       : 20px;
+        height            : 20px;
+        overflow          : hidden;
+        -ms-text-overflow : ellipsis;
+        text-overflow     : ellipsis;
+        white-space       : nowrap;
+        padding           : 0 10px;
+        margin            : 0;
+      }
+      p.team-category
+      {
+        font-weight    : 900;
+        margin         : 0;
+        font-size      : 14px;
+        text-transform : uppercase;
+        color          : color($colors, 'secondary');
+      }
+    }
+    div.team-players
+    {
+      ion-card.player-card
+      {
 
-    ion-card.player-card
+        width    : 95%;
+        padding  : 5px;
+        display  : table;
+
+        &.no-player
+        {
+          background     : color($colors, 'primary');
+          line-height    : 32px;
+          text-align     : center;
+          font-size      : 12px;
+          font-weight    : 300;
+          text-transform : uppercase;
+          p
+          {
+            color : color($colors, 'secondary');
+          }
+        }
+
+        > .player-img, .player-info
+        {
+          display        : table-cell;
+          text-align     : center;
+          vertical-align : middle;
+        }
+
+        .player-img
+        {
+          width      : 30px;
+          text-align : center;
+          img
+          {
+            object-fit    : cover;
+            width         : 30px;
+            height        : 30px;
+            border-radius : 100%;
+            display       : block;
+          }
+        }
+
+        position : relative;
+        margin   : 10px 0;
+
+        .player-info
+        {
+          text-align   : left;
+          padding-left : 5px;
+          p.player-name
+          {
+            display     : inline-block;
+            font-size   : 16px;
+            font-weight : 300;
+          }
+          p.player-position
+          {
+            font-weight    : 900;
+            text-transform : uppercase;
+            font-size      : 12px;
+            color          : color($colors, 'secondary');
+          }
+        }
+
+        div.is-captain
+        {
+          background     : $yellow;
+          position       : absolute;
+          top            : 0;
+          right          : 0;
+          color          : white;
+          padding        : 2px;
+          font-weight    : 600;
+          text-transform : uppercase;
+          font-size      : 10px;
+        }
+      }
+
+    }
+
+    .team-roster:last-child
     {
 
-      p.player-name
+      .is-captain
       {
-
+        left  : 0 !important;
+        right : auto !important;
       }
 
-      p.player-position
+      .team-players
       {
-
-      }
-
-      div.is-captain
-      {
-
+        text-align : right;
+        ion-card
+        {
+          margin-right : 0px;
+          margin-left  : auto;
+          .player-info
+          {
+            text-align    : right;
+            padding-left  : 0;
+            padding-right : 5px;
+          }
+        }
       }
     }
   }

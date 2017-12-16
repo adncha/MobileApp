@@ -15,15 +15,12 @@
 
 <ion-content>
   <ion-grid no-padding>
-    <ion-row class="game-bg"
+    <!--<ion-row class="game-bg"
              [ngStyle]="{'background-image':'url('+game?.venue_avatar+')'}">
       <ion-grid no-padding="">
         <ion-row class="teams">
           <ion-col class="team team-1">
-            <ion-avatar>
-              <ion-img src="{{game?.team_1_avatar}}">
-              </ion-img>
-            </ion-avatar>
+            <img src="{{game?.team_1_avatar}}">
             <h3 class="team-name">
               {{game?.team_1_name}}
             </h3>
@@ -37,10 +34,7 @@
             </span>
           </ion-col>
           <ion-col class="team team-2">
-            <ion-avatar>
-              <ion-img src="{{game?.team_2_avatar}}">
-              </ion-img>
-            </ion-avatar>
+            <img src="{{game?.team_2_avatar}}">
             <h3 class="team-name">
               {{game?.team_2_name}}
             </h3>
@@ -58,74 +52,80 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-    </ion-row>
+    </ion-row>-->
     <ion-row>
       <ion-col>
         <ion-card class="venue-card">
           <ion-row>
-            <ion-col>
+            <ion-col col-auto="">
               <ion-avatar>
-                <ion-img src="{{game?.venue_avatar}}">
-                </ion-img>
+                <img src="{{game?.venue_avatar}}">
               </ion-avatar>
             </ion-col>
             <ion-col>
               <h3 class="venue-name">
-                {{game?.venue_names}}
+                {{game?.venue_name}}
               </h3>
               <p class="venue-info">
                 {{game?.venue_size}} - {{game?.venue_type}} - {{game?.venue_localization}}
               </p>
-              <button ion-button icon-start color="yellow">
+              <!--<ion-buttons ion-button icon-start color="yellow">
                 <ion-icon name="map"></ion-icon>
                 map
-              </button>
+              </ion-buttons>-->
             </ion-col>
-            <ion-col class="venue-price">
+            <ion-col class="venue-price" col-auto="" align-self-center="">
               <span>
                 {{game?.venue_price}}
+                <sup>
+                  $
+                </sup>
               </span>
             </ion-col>
           </ion-row>
         </ion-card>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col
-        *ngFor="let team of game?.teams"
-        [class]="index==1?'team-roster  team-roster-left':'team-roster team-roster-right'">
-        <div class="team-title">
-          <ion-avatar>
-            <ion-img src="{{team.avatar}}">
-            </ion-img>
-          </ion-avatar>
+    <ion-row class="teams-rosters">
+      <ion-col col-6
+               *ngFor="let team of game?.teams; let i=index"
+               class="team-roster" >
+        <div class="team-title" (click)="goToTeamProfilePage(team.id)">
+          <img [src]="team.avatar">
           <h4>
             {{team.name}}
           </h4>
+          <p class="team-category">
+            {{team.category | slice:0:3}}
+          </p>
         </div>
         <div class="team-players">
           <ion-card
             *ngFor="let player of team.players"
-            class="player-card"
-            [navPush]="profilePage" [navParams]="{'user_id':player[0]}">
-            <ion-img [src]="player[5]">
-            </ion-img>
-            <p class="player-name">
-              {{player[1]}}
-            </p>
-            <p class="player-position">
-              {{ player[3] | slice :0:3}}
-            </p>
+            class="player-card" (click)="goToProfilePage(player[0])">
+            <div class="player-img" *ngIf="i==0">
+              <img [src]="player[5]">
+            </div>
+            <div class="player-info">
+              <p class="player-name">
+                {{player[1]}}
+              </p>
+              <p class="player-position">
+                {{ player[3] | slice :0:3}}
+              </p>
+            </div>
+            <div class="player-img" *ngIf="i==1">
+              <img [src]="player[5]">
+            </div>
             <div class="is-captain" *ngIf="player[4]=='1'">
-              <ion-icon name="star" color="yellow">
+              <ion-icon name="ios-arrow-dropup-circle">
               </ion-icon>
+              cap
             </div>
           </ion-card>
           <ion-card
             *ngFor="let index of team.empty_spots"
             class="player-card no-player">
-            <ion-img>
-            </ion-img>
             <p>
               reserved
             </p>

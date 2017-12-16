@@ -3,17 +3,14 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path: "../assets/fonts";
-
+$font-path : "../assets/fonts";
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
-
+$app-direction : ltr;
 
 @import "ionic.globals";
-
 
 // Shared Variables
 // --------------------------------------------------
@@ -22,8 +19,7 @@ $app-direction: ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$headings-font-weight: 300;
-
+$headings-font-weight : 300;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -39,18 +35,17 @@ $colors : (
   success: #70B453,
   danger: #FF5858,
   light: #EDF1F5,
-  dark: #222222,
+  dark: #101E37,
   white: white,
-  favorite:   #69BB7B,
-  twitter:    #1da1f4,
-  google:     #dc4a38,
-  vimeo:      #23b6ea,
-  facebook:   #3b5998
+  favorite: #69BB7B,
+  twitter: #1DA1F4,
+  google: #DC4A38,
+  vimeo: #23B6EA,
+  facebook: #3B5998,
+  yellow:#FDBF08
 );
 
-
-
-$yellow:#fdbf08;
+$yellow : #FDBF08;
 
 // Shared Variables
 // --------------------------------------------------
@@ -86,7 +81,6 @@ $tabs-wp-tab-color-inactive : color($colors, 'secondary');
 //-----------------------------
 // Text Capitalization
 
-
 // TOOLBAR TITLE
 //-----------------------------
 // Font Weight
@@ -114,31 +108,25 @@ $card-ios-text-color : color($colors, 'primary');
 $card-md-text-color : color($colors, 'primary');
 $card-wp-text-color : color($colors, 'primary');
 
-
-
-
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
 // Use the primary color as the background for the toolbar-md-background
-$toolbar-md-background:                   color($colors, primary);
+$toolbar-md-background : color($colors, primary);
 
 // Change the color of the segment button text
-$toolbar-md-active-color:                 #fff;
+$toolbar-md-active-color : #FFFFFF;
 
+$button-round-border-radius : 5px;
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
 
 // App Theme
 // --------------------------------------------------
@@ -149,14 +137,12 @@ $toolbar-md-active-color:                 #fff;
 
 @import "ionic.theme.default";
 
-
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
 
 @import "ionic.ionicons";
-
 
 // Fonts
 // --------------------------------------------------

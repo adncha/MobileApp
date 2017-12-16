@@ -42,6 +42,7 @@ import {SpeakerListPage} from '../pages/speaker-list/speaker-list';
 import {TabsPage} from '../pages/tabs-page/tabs-page';
 import {TutorialPage} from '../pages/tutorial/tutorial';
 import {SupportPage} from '../pages/support/support';
+import {GamePage} from "../pages/game/game";
 
 import {ConferenceData} from '../providers/conference-data';
 import {UserData} from '../providers/user-data';
@@ -49,6 +50,11 @@ import {TeamHubPage} from "../pages/team-hub/team-hub";
 import {GamesPage} from "../pages/games/games";
 import {ProfilePage} from "../pages/profile/profile";
 import {Databaseservice} from '../providers/databaseservice/databaseservice';
+import {SettingsPage} from "../pages/settings/settings";
+import {TeamSettingsPage} from "../pages/team-settings/team-settings";
+import {TeamProfilePage} from "../pages/team-profile/team-profile";
+import {TeamInvitesPage} from "../pages/team-invites/team-invites";
+import {TeamSwitchPage} from "../pages/team-switch/team-switch";
 
 
 @NgModule({
@@ -70,7 +76,13 @@ import {Databaseservice} from '../providers/databaseservice/databaseservice';
     SupportPage,
     TeamHubPage,
     GamesPage,
-    ProfilePage
+    GamePage,
+    ProfilePage,
+    SettingsPage,
+    TeamSettingsPage,
+    TeamProfilePage,
+    TeamInvitesPage,
+    TeamSwitchPage
   ],
   imports: [
     BrowserModule,
@@ -119,7 +131,13 @@ import {Databaseservice} from '../providers/databaseservice/databaseservice';
     SupportPage,
     TeamHubPage,
     GamesPage,
-    ProfilePage
+    GamePage,
+    ProfilePage,
+    SettingsPage,
+    TeamSettingsPage,
+    TeamProfilePage,
+    TeamInvitesPage,
+    TeamSwitchPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -6,6 +6,9 @@ import {Events} from 'ionic-angular';
 //Firebase
 import {Databaseservice} from "../../providers/databaseservice/databaseservice";
 import {Observable} from "rxjs/Observable";
+import {TeamSettingsPage} from "../team-settings/team-settings";
+import {TeamSwitchPage} from "../team-switch/team-switch";
+import {TeamInvitesPage} from "../team-invites/team-invites";
 
 
 /**
@@ -59,5 +62,22 @@ export class TeamHubPage {
       console.log(ref.key);
       this.message = '';
     });
+  }
+
+  goToTeamSettingsPage()
+  {
+    this.navCtrl.push(TeamSettingsPage);
+  }
+
+  goToTeamSwitchPage()
+  {
+    this.navCtrl.push(TeamSwitchPage);
+
+  }
+
+  goToTeamInvitesPage()
+  {
+    this.navCtrl.push(TeamInvitesPage);
+
   }
 }

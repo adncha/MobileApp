@@ -18,7 +18,7 @@ import {SupportPage} from '../pages/support/support';
 
 import {ConferenceData} from '../providers/conference-data';
 import {UserData} from '../providers/user-data';
-import {TeamHubPage} from "../pages/team-hub/team-hub";
+
 
 export interface PageInterface {
   title: string;
@@ -86,7 +86,7 @@ export class ConferenceApp {
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
         if (hasSeenTutorial) {
-          this.rootPage = TeamHubPage;
+          this.rootPage = TabsPage;
         } else {
           this.rootPage = TutorialPage;
         }

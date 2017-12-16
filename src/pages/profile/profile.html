@@ -7,11 +7,11 @@
 <ion-header>
   <ion-navbar>
     <ion-buttons left>
-      <button ion-button icon-only>
+      <button ion-button icon-only *ngIf="!user_id" (click)="goToSettingPage()">
         <ion-icon name="cog"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>profile</ion-title>
+    <ion-title>{{user_id?(user?.first_name+' '+user?.last_name):'profile'}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,20 +19,20 @@
   <ion-grid>
     <ion-row class="user-info">
       <ion-col class="user-general-info">
-        <ion-row>
+        <ion-row class="user-general-info-wrapper">
           <ion-col class="user-general-img">
-            <ion-img src="/assets/img/demo/user_1.jpg">
+            <ion-img src="{{user?.avatar}}">
             </ion-img>
           </ion-col>
           <ion-col class="user-general-name">
             <h2 class="first-name">
-              Adnane
+              {{user?.first_name}}
             </h2>
             <h2 class="last-name">
-              Chaabi
+              {{user?.last_name}}
             </h2>
             <h4 class="position">
-              Midfielder
+              {{user?.position}}
             </h4>
           </ion-col>
         </ion-row>
@@ -43,7 +43,7 @@
             level
           </label>
           <h4 class="level">
-            comp
+            {{user?.level}}
           </h4>
         </div>
       </ion-col>
@@ -56,17 +56,17 @@
           assist
         </label>
         <p>
-          4
+          {{user?.assists}}
         </p>
       </ion-col>
       <ion-col>
         <ion-img src="./assets/img/demo/assist.png">
         </ion-img>
         <label>
-          assist
+          scored
         </label>
         <p>
-          4
+          {{user?.goals}}
         </p>
       </ion-col>
       <ion-col class="mvp">
@@ -74,10 +74,10 @@
           <ion-icon name="star">
           </ion-icon>
           <label>
-            assist
+            MVP
           </label>
           <p>
-            4
+            {{user?.mvp}}
           </p>
         </div>
       </ion-col>
@@ -85,20 +85,20 @@
         <ion-img src="./assets/img/demo/assist.png">
         </ion-img>
         <label>
-          assist
+          YC
         </label>
         <p>
-          4
+          {{user?.yellow_cards}}
         </p>
       </ion-col>
       <ion-col>
         <ion-img src="./assets/img/demo/assist.png">
         </ion-img>
         <label>
-          assist
+          RC
         </label>
         <p>
-          4
+          {{user?.red_cards}}
         </p>
       </ion-col>
     </ion-row>
@@ -108,86 +108,17 @@
     <ion-row class="teams">
       <ion-col>
         <ion-slides slidesPerView="2">
-          <ion-slide>
+          <ion-slide *ngFor="let team of user?.teams"
+                     (click)="goToTeamProfilePage(user.team_id)"
+          >
             <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
+              <img src="{{team[3]}}">
               <div class="info">
                 <p>
-                  Dragons
+                  {{team[1]}}
                 </p>
                 <span>
-                  comp
-                </span>
-              </div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
-              <div class="info">
-                <p>
-                  Dragons
-                </p>
-                <span>
-                  comp
-                </span>
-              </div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
-              <div class="info">
-                <p>
-                  Dragons
-                </p>
-                <span>
-                  comp
-                </span>
-              </div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
-              <div class="info">
-                <p>
-                  Dragons
-                </p>
-                <span>
-                  comp
-                </span>
-              </div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
-              <div class="info">
-                <p>
-                  Dragons
-                </p>
-                <span>
-                  comp
-                </span>
-              </div>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div class="team">
-              <ion-img src="/assets/img/demo/team_1.jpg">
-              </ion-img>
-              <div class="info">
-                <p>
-                  Dragons
-                </p>
-                <span>
-                  comp
+                  {{team[2] | slice :0:3}}
                 </span>
               </div>
             </div>
@@ -200,66 +131,65 @@
     </h4>
     <ion-row class="games">
       <ion-col>
-        <ion-card>
+        <ion-card *ngFor="let game of user?.games"
+                  (click)="goToGamePage(game.id)"
+        >
           <ion-grid>
             <ion-row>
               <ion-col class="game-image">
-                <ion-img height="30" width="30" src="./assets/img/demo/field_1.jpg">
-                </ion-img>
+                <img height="30" width="30" src="{{game.venue_avatar}}">
               </ion-col>
               <ion-col class="game-info">
                 <p class="venue-name">
-                  Collège André Grasset
+                  {{game.venue_name}}
                 </p>
                 <p class="venue-info">
-                  7 vs 7 - Parquet - Indoor
+                  {{game.venue_size}} - {{game.venue_type}} - {{game.venue_localization}}
                 </p>
               </ion-col>
               <ion-col class="game-time">
                 <span class="date">
-                  Sat 9th Nov
+                  {{game.start}}
                 </span>
                 <span class="time">
-                  16:00
+                  {{game.start_time}}
                 </span>
               </ion-col>
             </ion-row>
             <ion-row class="teams">
               <ion-col class="game-teams left">
                 <div class="team-img">
-                  <ion-img src="/assets/img/demo/team_1.jpg">
-                  </ion-img>
+                  <img src="{{game.team_1_avatar}}">
                 </div>
                 <div class="team-info">
                   <p class="team-name">
-                    Eagles
+                    {{game.team_1_name}}
                   </p>
                   <p class="team-category">
-                    comp
+                    {{game.team_1_category}}
                   </p>
                 </div>
               </ion-col>
               <ion-col align-self-center class="game-vs">
                 <span>
-                  3
+                  {{game.team_1_score}}
                 </span>
                 VS
                 <span>
-                  5
+                  {{game.team_2_score}}
                 </span>
               </ion-col>
               <ion-col class="game-teams right">
                 <div class="team-info">
                   <p class="team-name">
-                    Mickael
+                    {{game.team_2_name}}
                   </p>
                   <p class="team-category">
-                    comp
+                    {{game.team_2_category}}
                   </p>
                 </div>
                 <div class="team-img">
-                  <ion-img src="./assets/img/demo/team_2.jpeg">
-                  </ion-img>
+                  <img src="{{game.team_2_avatar}}">
                 </div>
               </ion-col>
             </ion-row>
@@ -269,73 +199,16 @@
                   Personal stats
                 </label>
                 <div class="stats-icon">
-                  <ion-img height="20px" width="20px" src="./assets/img/demo/assist.png">
-                  </ion-img>
-                </div>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card>
-        <ion-card>
-          <ion-grid>
-            <ion-row>
-              <ion-col class="game-image">
-                <ion-img height="30" width="30" src="./assets/img/demo/field_1.jpg">
-                </ion-img>
-              </ion-col>
-              <ion-col class="game-info">
-                <p class="venue-name">
-                  Collège André Grasset
-                </p>
-                <p class="venue-info">
-                  7 vs 7 - Parquet - Indoor
-                </p>
-              </ion-col>
-              <ion-col class="game-time">
-                <span class="date">
-                  Sat 9th November
-                </span>
-                <span class="time">
-                  16:00
-                </span>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col class="game-teams left">
-                <div class="team-img">
-                  <ion-img src="/assets/img/demo/team_1.jpg">
-                  </ion-img>
-                </div>
-                <div class="team-info">
-                  <p class="team-name">
-                    Eagles
-                  </p>
-                  <p class="team-category">
-                    comp
-                  </p>
-                </div>
-              </ion-col>
-              <ion-col align-self-center class="game-vs">
-                <span>
-                  3
-                </span>
-                VS
-                <span>
-                  5
-                </span>
-              </ion-col>
-              <ion-col class="game-teams right">
-                <div class="team-info">
-                  <p class="team-name">
-                    Mickael
-                  </p>
-                  <p class="team-category">
-                    comp
-                  </p>
-                </div>
-                <div class="team-img">
-                  <ion-img src="./assets/img/demo/team_2.jpeg">
-                  </ion-img>
+                  <img *ngFor="let higlight of   [].constructor(+game.mvp)"
+                       height="20px" width="20px" src="./assets/img/demo/assist.png">
+                  <img *ngFor="let higlight of   [].constructor(+game.goals)"
+                       height="20px" width="20px" src="./assets/img/demo/assist.png">
+                  <img *ngFor="let higlight of   [].constructor(+game.assists)"
+                       height="20px" width="20px" src="./assets/img/demo/assist.png">
+                  <img *ngFor="let higlight of   [].constructor(+game.yellow_cards)"
+                       height="20px" width="20px" src="./assets/img/demo/assist.png">
+                  <img *ngFor="let higlight of   [].constructor(+game.red_cards)"
+                       height="20px" width="20px" src="./assets/img/demo/assist.png">
                 </div>
               </ion-col>
             </ion-row>
