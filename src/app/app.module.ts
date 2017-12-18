@@ -55,6 +55,13 @@ import {TeamSettingsPage} from "../pages/team-settings/team-settings";
 import {TeamProfilePage} from "../pages/team-profile/team-profile";
 import {TeamInvitesPage} from "../pages/team-invites/team-invites";
 import {TeamSwitchPage} from "../pages/team-switch/team-switch";
+import {SignUpPage} from "../pages/sign-up/sign-up";
+import {SignInPage} from "../pages/sign-in/sign-in";
+import {CreateTeamPage} from "../pages/create-team/create-team";
+import {BotIntroPage} from "../pages/bot-intro/bot-intro";
+import {ChoosePicturePage} from "../pages/choose-picture/choose-picture";
+import {ChooseLevelPage} from "../pages/choose-level/choose-level";
+import {ChooseAvailabilitiesPage} from "../pages/choose-availabilities/choose-availabilities";
 
 
 @NgModule({
@@ -82,36 +89,90 @@ import {TeamSwitchPage} from "../pages/team-switch/team-switch";
     TeamSettingsPage,
     TeamProfilePage,
     TeamInvitesPage,
-    TeamSwitchPage
-  ],
+    TeamSwitchPage,
+    SignUpPage,
+    SignInPage,
+    CreateTeamPage,
+    BotIntroPage,
+    ChoosePicturePage,
+    ChooseLevelPage,
+    ChooseAvailabilitiesPage],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(
+      firebaseConfig),
     AngularFireDatabaseModule,
-    IonicModule.forRoot(ConferenceApp, {tabsPlacement: 'bottom'}, {
-      links: [
-        {component: TabsPage, name: 'TabsPage', segment: 'tabs-page'},
-        {component: SchedulePage, name: 'Schedule', segment: 'schedule'},
-        {component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId'},
-        {component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter'},
-        {component: SpeakerListPage, name: 'SpeakerList', segment: 'speakerList'},
-        {component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId'},
-        {component: MapPage, name: 'Map', segment: 'map'},
-        {component: AboutPage, name: 'About', segment: 'about'},
-        {component: TutorialPage, name: 'Tutorial', segment: 'tutorial'},
-        {component: SupportPage, name: 'SupportPage', segment: 'support'},
-        {component: LoginPage, name: 'LoginPage', segment: 'login'},
-        {component: AccountPage, name: 'AccountPage', segment: 'account'},
-        {component: SignupPage, name: 'SignupPage', segment: 'signup'},
-        {component: TeamHubPage, name: 'TeamHubPage', segment: 'teamhub'},
-        {component: GamesPage, name: 'GamesPage', segment: 'games'},
-        {component: ProfilePage, name: 'ProfilePage', segment: 'profile'}
-      ]
-    }),
-    IonicStorageModule.forRoot()
-  ],
+    IonicModule.forRoot(ConferenceApp, {
+      tabsPlacement: 'bottom'
+    }, {
+      links: [{
+        component: TabsPage,
+        name: 'TabsPage',
+        segment: 'tabs-page'
+      }, {
+        component: SchedulePage,
+        name: 'Schedule',
+        segment: 'schedule'
+      }, {
+        component: SessionDetailPage,
+        name: 'SessionDetail',
+        segment: 'sessionDetail/:sessionId'
+      }, {
+        component: ScheduleFilterPage,
+        name: 'ScheduleFilter',
+        segment: 'scheduleFilter'
+      }, {
+        component: SpeakerListPage,
+        name: 'SpeakerList',
+        segment: 'speakerList'
+      }, {
+        component: SpeakerDetailPage,
+        name: 'SpeakerDetail',
+        segment: 'speakerDetail/:speakerId'
+      }, {
+        component: MapPage,
+        name: 'Map',
+        segment: 'map'
+      }, {
+        component: AboutPage,
+        name: 'About',
+        segment: 'about'
+      }, {
+        component: TutorialPage,
+        name: 'Tutorial',
+        segment: 'tutorial'
+      }, {
+        component: SupportPage,
+        name: 'SupportPage',
+        segment: 'support'
+      }, {
+        component: LoginPage,
+        name: 'LoginPage',
+        segment: 'login'
+      }, {
+        component: AccountPage,
+        name: 'AccountPage',
+        segment: 'account'
+      }, {
+        component: SignupPage,
+        name: 'SignupPage',
+        segment: 'signup'
+      }, {
+        component: TeamHubPage,
+        name: 'TeamHubPage',
+        segment: 'teamhub'
+      }, {
+        component: GamesPage,
+        name: 'GamesPage',
+        segment: 'games'
+      }, {
+        component: ProfilePage,
+        name: 'ProfilePage',
+        segment: 'profile'
+      }]
+    }), IonicStorageModule.forRoot()],
   bootstrap: [IonicApp],
   entryComponents: [
     ConferenceApp,
@@ -137,10 +198,20 @@ import {TeamSwitchPage} from "../pages/team-switch/team-switch";
     TeamSettingsPage,
     TeamProfilePage,
     TeamInvitesPage,
-    TeamSwitchPage
+    TeamSwitchPage,
+    SignUpPage,
+    SignInPage,
+    CreateTeamPage,
+    BotIntroPage,
+    ChoosePicturePage,
+    ChooseLevelPage,
+    ChooseAvailabilitiesPage
   ],
   providers: [
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
     ConferenceData,
     UserData,
     InAppBrowser,

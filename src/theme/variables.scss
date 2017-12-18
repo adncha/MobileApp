@@ -3,12 +3,12 @@
 
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
-$font-path : "../assets/fonts";
+$font-path: "../assets/fonts";
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
-$app-direction : ltr;
+$app-direction: ltr;
 
 @import "ionic.globals";
 
@@ -19,7 +19,7 @@ $app-direction : ltr;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$headings-font-weight : 300;
+$headings-font-weight: 300;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -29,7 +29,7 @@ $headings-font-weight : 300;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors : (
+$colors: (
   primary: #1D3B64,
   secondary: #8E9DB2,
   success: #70B453,
@@ -45,7 +45,7 @@ $colors : (
   yellow:#FDBF08
 );
 
-$yellow : #FDBF08;
+$yellow: #FDBF08;
 
 // Shared Variables
 // --------------------------------------------------
@@ -54,28 +54,28 @@ $yellow : #FDBF08;
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
-$card-header-color : color($colors, 'primary');
-$background-color : color($colors, 'light');
+$card-header-color: color($colors, 'primary');
+$background-color: color($colors, 'light');
 
 // TABS
 //-----------------------------
 // Size
 
-$tabs-ios-tab-font-size : 8px;
-$tabs-ios-tab-icon-size : 22px;
-$tabs-md-tab-font-size : 8px;
-$tabs-md-tab-font-size-active : 10px;
-$tabs-md-tab-icon-size : 22px;
-$tabs-wp-tab-font-size : 8px;
-$tabs-wp-tab-icon-size : 22px;
+$tabs-ios-tab-font-size: 8px;
+$tabs-ios-tab-icon-size: 22px;
+$tabs-md-tab-font-size: 8px;
+$tabs-md-tab-font-size-active: 10px;
+$tabs-md-tab-icon-size: 22px;
+$tabs-wp-tab-font-size: 8px;
+$tabs-wp-tab-icon-size: 22px;
 
 // TABS
 //-----------------------------
 // Color
 
-$tabs-ios-tab-color-inactive : color($colors, 'secondary');
-$tabs-md-tab-color-inactive : color($colors, 'secondary');
-$tabs-wp-tab-color-inactive : color($colors, 'secondary');
+$tabs-ios-tab-color-inactive: color($colors, 'secondary');
+$tabs-md-tab-color-inactive: color($colors, 'secondary');
+$tabs-wp-tab-color-inactive: color($colors, 'secondary');
 
 // TABS
 //-----------------------------
@@ -84,29 +84,29 @@ $tabs-wp-tab-color-inactive : color($colors, 'secondary');
 // TOOLBAR TITLE
 //-----------------------------
 // Font Weight
-$toolbar-ios-title-font-weight : 900;
-$toolbar-wp-title-font-weight : 900;
-$toolbar-md-title-font-weight : 900;
+$toolbar-ios-title-font-weight: 900;
+$toolbar-wp-title-font-weight: 900;
+$toolbar-md-title-font-weight: 900;
 
-$toolbar-ios-title-text-align : center;
-$toolbar-wp-title-text-align : center;
-$toolbar-md-title-text-align : center;
+$toolbar-ios-title-text-align: center;
+$toolbar-wp-title-text-align: center;
+$toolbar-md-title-text-align: center;
 
-$toolbar-background : color($colors, 'primary');
+$toolbar-background: color($colors, 'primary');
 
-$toolbar-md-title-font-size : 14px;
-$toolbar-ios-title-font-size : 14px;
-$toolbar-wp-title-font-size : 14px;
+$toolbar-md-title-font-size: 14px;
+$toolbar-ios-title-font-size: 14px;
+$toolbar-wp-title-font-size: 14px;
 
-$text-input-wp-border-width : 0;
+$text-input-wp-border-width: 0;
 
-$list-ios-background-color : white;
-$list-md-background-color : white;
-$list-wp-background-color : white;
+$list-ios-background-color: white;
+$list-md-background-color: white;
+$list-wp-background-color: white;
 
-$card-ios-text-color : color($colors, 'primary');
-$card-md-text-color : color($colors, 'primary');
-$card-wp-text-color : color($colors, 'primary');
+$card-ios-text-color: color($colors, 'primary');
+$card-md-text-color: color($colors, 'primary');
+$card-wp-text-color: color($colors, 'primary');
 
 // App iOS Variables
 // --------------------------------------------------
@@ -117,12 +117,12 @@ $card-wp-text-color : color($colors, 'primary');
 // Material Design only Sass variables can go here
 
 // Use the primary color as the background for the toolbar-md-background
-$toolbar-md-background : color($colors, primary);
+$toolbar-md-background: color($colors, primary);
 
 // Change the color of the segment button text
-$toolbar-md-active-color : #FFFFFF;
+$toolbar-md-active-color: #FFFFFF;
 
-$button-round-border-radius : 5px;
+$button-ios-border-radius: 1px;
 
 // App Windows Variables
 // --------------------------------------------------

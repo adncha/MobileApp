@@ -13,18 +13,17 @@
 
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="goToTeamInvitesPage()">
         <ion-icon name="person-add"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="goToTeamSwitchPage()">
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title text-uppercase text-center>Team Hub</ion-title>
   </ion-navbar>
 
-
-  <ion-toolbar color="white">
+  <ion-toolbar color="white" id="yas-bot-container">
     <div id="yas-bot">
       <div class="chat-bot">
         <ion-grid no-padding="">

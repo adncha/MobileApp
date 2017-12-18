@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the TeamInvitesPage page.
@@ -8,18 +8,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-team-invites',
-  templateUrl: 'team-invites.html',
+@IonicPage() @Component({
+  selector: 'page-team-invites', templateUrl: 'team-invites.html',
 })
-export class TeamInvitesPage {
+export class TeamInvitesPage
+{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController)
+  {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad TeamInvitesPage');
+  }
+
+  dismiss()
+  {
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -1,18 +1,205 @@
 <!--
-  Generated template for the TeamProfilePage page.
+  Generated template for the ProfilePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>teamProfile</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only *ngIf="!team_id" (click)="goToTeamSettingPage(team_id)">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{team_id?(team?.name):'team profile'}}</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <ion-grid>
+    <ion-row class="team-info">
+      <ion-col class="team-general-info">
+        <ion-row class="team-general-info-wrapper">
+          <ion-col class="team-general-img" col-auto>
+            <ion-img src="{{team?.avatar}}">
+            </ion-img>
+          </ion-col>
+          <ion-col class="team-general-name">
+            <h2 class="name">
+              {{team?.name}}
+            </h2>
+            <h4 class="category">
+              {{team?.category}}
+            </h4>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col class="team-general-ranking" col-auto>
+        <div>
+          <label>
+            ranking
+          </label>
+          <h4 class="ranking">
+            22
+          </h4>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="team-stats">
+      <ion-col>
+        <ion-icon color='secondary' name="md-send">
+        </ion-icon>
+        <label>
+          played
+        </label>
+        <p>
+          {{team?.games_count}}
+        </p>
+      </ion-col>
+      <ion-col>
+        <ion-icon color='secondary' block name="ios-football-outline">
+        </ion-icon>
+        <label>
+          won
+        </label>
+        <p>
+          {{team?.won}}
+        </p>
+      </ion-col>
+      <ion-col class="ratio">
+        <div class="ratio-wrapper">
+          <ion-icon name="star">
+          </ion-icon>
+          <label>
+            Ratio
+          </label>
+          <p>
+            {{team?.ratio | number : '1.2-2'}}
+          </p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <ion-icon color='yellow' block name="md-albums">
+        </ion-icon>
+        <label>
+          Lost
+        </label>
+        <p>
+          {{team?.lost}}
+        </p>
+      </ion-col>
+      <ion-col>
+        <ion-icon color='danger' block name="md-albums">
+        </ion-icon>
+        <label>
+          Draw
+        </label>
+        <p>
+          {{team?.draw}}
+        </p>
+      </ion-col>
+    </ion-row>
+    <h4>
+      Players
+    </h4>
+    <ion-row class="players">
+      <ion-col>
+        <ion-slides slidesPerView="2">
+          <ion-slide *ngFor="let player of team?.players"
+                     (click)="goToProfilePage(player[0])">
+            <div class="player">
+              <img src="{{player[5]}}">
+              <div class="info">
+                <p>
+                  {{player[1]}}
+                </p>
+                <span>
+                  {{player[3] | slice :0:3}}
+                </span>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <h4>
+      games
+    </h4>
+    <ion-row class="games">
+      <ion-col>
+        <ion-card *ngFor="let game of team?.games"
+                  (click)="goToGamePage(game.id)">
+          <ion-grid>
+            <ion-row>
+              <ion-col class="game-image" col-auto="">
+                <img height="30" width="30" src="{{game.venue_avatar}}">
+              </ion-col>
+              <ion-col class="game-info">
+                <p class="venue-name">
+                  {{game.venue_name}}
+                </p>
+                <p class="venue-info">
+                  <span class="size">
+                    {{game.venue_size}}
+                  </span>
+                  <span class="type">
+                    {{game.venue_type}}
+                  </span>
+                  <span class="localization">
+                    {{game.venue_localization}}
+                  </span>
+                </p>
+              </ion-col>
+              <ion-col class="game-time" col-auto="">
+                <span class="date">
+                  {{game.start | date:"mediumDate"}}
+                </span>
+                <span class="time">
+                  {{game.start_time}}
+                </span>
+              </ion-col>
+            </ion-row>
+            <ion-row class="teams">
+              <ion-col class="game-teams left">
+                <div class="team-img">
+                  <img src="{{game.team_1_avatar}}">
+                </div>
+                <div class="team-info">
+                  <p class="team-name">
+                    {{game.team_1_name}}
+                  </p>
+                  <p class="team-category">
+                    {{game.team_1_category}}
+                  </p>
+                </div>
+              </ion-col>
+              <ion-col align-self-center col-auto="" class="game-vs">
+                <span>
+                  {{game.team_1_score}}
+                </span>
+                VS
+                <span>
+                  {{game.team_2_score}}
+                </span>
+              </ion-col>
+              <ion-col class="game-teams right">
+                <div class="team-img">
+                  <img src="{{game.team_2_avatar}}">
+                </div>
+                <div class="team-info">
+                  <p class="team-name">
+                    {{game.team_2_name}}
+                  </p>
+                  <p class="team-category">
+                    {{game.team_2_category}}
+                  </p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+

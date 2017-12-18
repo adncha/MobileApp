@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {Events} from 'ionic-angular';
 
 
@@ -18,47 +18,45 @@ import {TeamInvitesPage} from "../team-invites/team-invites";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-team-hub',
-  templateUrl: 'team-hub.html',
+@IonicPage() @Component({
+  selector: 'page-team-hub', templateUrl: 'team-hub.html',
 })
-export class TeamHubPage {
+export class TeamHubPage
+{
 
   message: string = '';
 
   messages$: Observable<Object[]>;
 
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public events: Events,
-              public databaseService: Databaseservice) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events, public databaseService: Databaseservice, public modalCtrl: ModalController)
+  {
 
     this.messages$ = this.databaseService
       .getMessages()// Get messages
       .snapshotChanges()// Get the key and value pair
-      .map(
-        changes => {
-          return changes.map(c => (
-            {
-              key: c.payload.key,
-              ...c.payload.val()
-            }
-          ))
-        }
-      );
+      .map(changes =>
+      {
+        return changes.map(c => (
+          {
+            key: c.payload.key, ...c.payload.val()
+          }
+        ))
+      });
     console.log(this.messages$);
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad()
+  {
 
   }
 
-  sendMessage() {
+  sendMessage()
+  {
     this.databaseService.addMessage({
       'message': this.message
-    }).then(ref => {
+    }).then(ref =>
+    {
       console.log(ref.key);
       this.message = '';
     });
@@ -66,18 +64,21 @@ export class TeamHubPage {
 
   goToTeamSettingsPage()
   {
-    this.navCtrl.push(TeamSettingsPage);
+    let modal = this.modalCtrl.create(TeamSettingsPage);
+    modal.present();
   }
 
   goToTeamSwitchPage()
   {
-    this.navCtrl.push(TeamSwitchPage);
+    let modal = this.modalCtrl.create(TeamSwitchPage);
+    modal.present();
 
   }
 
   goToTeamInvitesPage()
   {
-    this.navCtrl.push(TeamInvitesPage);
+    let modal = this.modalCtrl.create(TeamInvitesPage);
+    modal.present();
 
   }
 }

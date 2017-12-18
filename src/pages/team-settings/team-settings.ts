@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the TeamSettingsPage page.
@@ -8,18 +8,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-team-settings',
-  templateUrl: 'team-settings.html',
+@IonicPage() @Component({
+  selector: 'page-team-settings', templateUrl: 'team-settings.html',
 })
-export class TeamSettingsPage {
+export class TeamSettingsPage
+{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController)
+  {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad TeamSettingsPage');
+  }
+
+
+  dismiss()
+  {
+    this.viewCtrl.dismiss();
   }
 
 }

@@ -1,9 +1,10 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {HttpClient} from "@angular/common/http";
 import {SettingsPage} from "../settings/settings";
+import {GamePage} from "../game/game";
+import {TeamProfilePage} from "../team-profile/team-profile";
 
-/*import {GamePage} from "../game/game";*/
 
 /**
  * Generated class for the ProfilePage page.
@@ -25,6 +26,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
               private http: HttpClient,
               public navParams: NavParams,
+              public modalCtrl: ModalController,
               public changeDetector: ChangeDetectorRef) {
 
     let user_id = this.navParams.data.user_id ? this.navParams.data.user_id : false;
@@ -39,7 +41,6 @@ export class ProfilePage {
         for (let entry of teams_array) {
           this.user.teams.push(entry.split('___'));
         }
-        console.log(this.user.teams);
       })
   }
 
@@ -48,9 +49,22 @@ export class ProfilePage {
   }
 
 
+  goToSettingPage() {
 
-  goToSettingPage(user_id) {
-    this.navCtrl.push(SettingsPage, {user_id: user_id});
+    let modal = this.modalCtrl.create(SettingsPage);
+    modal.present();
+  }
+
+  goToGamePage(game_id) {
+    this.navCtrl.push(GamePage, {
+      'game_id': game_id
+    })
+  }
+
+  goToTeamProfilePage(team_id) {
+    this.navCtrl.push(TeamProfilePage, {
+      'team_id': team_id
+    })
   }
 }
 

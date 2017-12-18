@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the TeamSwitchPage page.
@@ -8,18 +8,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-team-switch',
-  templateUrl: 'team-switch.html',
+@IonicPage() @Component({
+  selector: 'page-team-switch', templateUrl: 'team-switch.html',
 })
-export class TeamSwitchPage {
+export class TeamSwitchPage
+{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController)
+  {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad TeamSwitchPage');
+  }
+
+  dismiss()
+  {
+    this.viewCtrl.dismiss();
   }
 
 }

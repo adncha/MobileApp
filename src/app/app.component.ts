@@ -3,6 +3,7 @@ import {Component, ViewChild} from '@angular/core';
 import {Events, MenuController, Nav, Platform} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
+
 import {Storage} from '@ionic/storage';
 
 import {AboutPage} from '../pages/about/about';
@@ -42,45 +43,26 @@ export class ConferenceApp {
   // List of pages that can be navigated to from the left menu
   // the left menu only works after login
   // the login page disables the left menu
-  appPages: PageInterface[] = [
-    {title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar'},
-    {
-      title: 'Speakers',
-      name: 'TabsPage',
-      component: TabsPage,
-      tabComponent: SpeakerListPage,
-      index: 1,
-      icon: 'contacts'
-    },
-    {title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map'},
-    {
-      title: 'About',
-      name: 'TabsPage',
-      component: TabsPage,
-      tabComponent: AboutPage,
-      index: 3,
-      icon: 'information-circle'
-    }
-  ];
-  loggedInPages: PageInterface[] = [
-    {title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person'},
-    {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'},
-    {title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true}
-  ];
-  loggedOutPages: PageInterface[] = [
-    {title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in'},
-    {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'},
-    {title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add'}
-  ];
+  appPages: PageInterface[] = [{
+    title: 'Schedule', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 0, icon: 'calendar'
+  }, {
+    title: 'Speakers', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 1, icon: 'contacts'
+  }, {title: 'Map', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 2, icon: 'map'}, {
+    title: 'About', name: 'TabsPage', component: TabsPage, tabComponent: AboutPage, index: 3, icon: 'information-circle'
+  }];
+  loggedInPages: PageInterface[] = [{
+    title: 'Account', name: 'AccountPage', component: AccountPage, icon: 'person'
+  }, {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'}, {
+    title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true
+  }];
+  loggedOutPages: PageInterface[] = [{
+    title: 'Login', name: 'LoginPage', component: LoginPage, icon: 'log-in'
+  }, {title: 'Support', name: 'SupportPage', component: SupportPage, icon: 'help'}, {
+    title: 'Signup', name: 'SignupPage', component: SignupPage, icon: 'person-add'
+  }];
   rootPage: any;
 
-  constructor(public events: Events,
-              public userData: UserData,
-              public menu: MenuController,
-              public platform: Platform,
-              public confData: ConferenceData,
-              public storage: Storage,
-              public splashScreen: SplashScreen) {
+  constructor(public events: Events, public userData: UserData, public menu: MenuController, public platform: Platform, public confData: ConferenceData, public storage: Storage, public splashScreen: SplashScreen) {
 
     // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
@@ -163,6 +145,7 @@ export class ConferenceApp {
     });
   }
 
+
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
 
@@ -179,4 +162,6 @@ export class ConferenceApp {
     }
     return;
   }
+
+
 }

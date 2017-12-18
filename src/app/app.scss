@@ -1,16 +1,12 @@
 // Media of at most the maximum breakpoint width. No query for the largest breakpoint.
 // Makes the @content apply to the given breakpoint and narrower.
-@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints)
-{
-  $max : breakpoint-max($name, $breakpoints);
-  @if $max
-  {
-    @media (max-width : $max)
-    {
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
       @content;
     }
-  } @else
-  {
+  } @else {
     @content;
   }
 }
@@ -23,9 +19,8 @@
 //    md
 //    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
 //    md
-@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints))
-{
-  $n : index($breakpoint-names, $name);
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
   @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
@@ -34,54 +29,142 @@
 //
 //    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
 //    767px
-@function breakpoint-max($name, $breakpoints: $grid-breakpoints)
-{
-  $next : breakpoint-next($name, $breakpoints);
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }
 
 // Creates text alignment classes based on screen size
 // TODO this would be nice to add to the framework
-@each $breakpoint in map-keys($grid-breakpoints)
-{
-  $infix : breakpoint-infix($breakpoint, $grid-breakpoints);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-  @include media-breakpoint-up($breakpoint, $grid-breakpoints)
-  {
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
     // Provide text `[text-{bp}]` attributes for aligning text based on screen size
-    [text#{$infix}-center]
-    {
-      text-align : center;
+    [text#{$infix}-center] {
+      text-align: center;
     }
 
-    [text#{$infix}-left]
-    {
-      text-align : left;
+    [text#{$infix}-left] {
+      text-align: left;
     }
 
-    [text#{$infix}-right]
-    {
-      text-align : right;
+    [text#{$infix}-right] {
+      text-align: right;
     }
 
-    [hidden#{$infix}-up]
-    {
-      display : none;
+    [hidden#{$infix}-up] {
+      display: none;
     }
   }
 
-  @include media-breakpoint-down($breakpoint, $grid-breakpoints)
-  {
-    [hidden#{$infix}-down]
-    {
-      display : none;
+  @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+    [hidden#{$infix}-down] {
+      display: none;
     }
   }
 }
 
-ion-title
-{
-  text-transform : uppercase;
-  font-weight    : 900;
-  text-align     : center;
+ion-title {
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+}
+
+$margin: 10px;
+
+// Yass bot
+#yas-bot-container {
+  padding: 0;
+  #yas-bot {
+    padding: 5px;
+    ion-col {
+      &:first-child {
+        img {
+          margin-top: 20px;
+          border-radius: 100%;
+          object-fit: cover;
+        }
+        flex: 0 0 30px;
+      }
+      &:nth-child(2) {
+        label {
+          font-size: 12px;
+          line-height: 20px;
+          padding: 0;
+          display: block;
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+        ion-card {
+
+          position: relative;
+          overflow: unset;
+          ::before {
+            content: '';
+            background: white;
+            width: 10px;
+            z-index: 0;
+            height: 10px;
+            display: block;
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            border-radius: 2px;
+            transform: rotate(45deg);
+            border-left: solid 1px #eee;
+            border-bottom: solid 1px #eee;
+          }
+          background: white;
+          text-transform: none;
+          padding: 10px;
+          margin: 0;
+          p {
+            font-size: 13px;
+            line-height: 1.4;
+            font-weight: 400;
+            color: color($colors, 'primary');
+          }
+        }
+      }
+    }
+  }
+
+  .bot-content {
+    position: absolute;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+    .temp-object {
+      margin: auto;
+      display: inline-block;
+      height: 100px;
+      width: 100px;
+      background: black;
+
+    }
+  }
+
+  .bot-cta {
+    z-index: 10;
+    background: white;
+    border-top: solid 1px #eee;
+    padding: 10px;
+    margin-top: 50px;
+    position: relative;
+    overflow: unset;
+    text-align: center;
+    #bot-drag {
+      margin-bottom: -10px;
+      width: 50px;
+      border-radius: 10px;
+      height: 20px;
+      z-index: 100;
+      display: inline-block;
+      bottom: -10px;
+      background: color($colors, 'primary');
+      box-shadow: 1px 1px 1px 1px grey;
+    }
+  }
 }
