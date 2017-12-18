@@ -1,0 +1,82 @@
+<ion-content class="login-page" background="primary">
+  <div class="login-form-wrapper">
+    <div class="login-form-container">
+      <div class="logo">
+        <img src="/assets/img/logo_text_white.png" alt="spotfields logo">
+      </div>
+      <h3>
+        Sign up below to continue
+      </h3>
+      <button block ion-button padding icon-start color="light" class="facebook-button">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <span>
+          sign up  with facebook
+        </span>
+      </button>
+      <p class="or">
+        or
+      </p>
+      <form #signupForm="ngForm" novalidate>
+        <ion-grid no-padding="">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label floating color="primary">First name</ion-label>
+                <ion-input [(ngModel)]="signup.first_name" name="first_name" type="text" #first_name="ngModel" required>
+                </ion-input>
+                <p ion-text [hidden]="first_name.valid || submitted == false" color="danger" padding-left>
+                  Username is required
+                </p>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label floating color="primary">Last name</ion-label>
+                <ion-input [(ngModel)]="signup.last_name" name="last_name" type="text" #last_name="ngModel" required>
+                </ion-input>
+                <p ion-text [hidden]="last_name .valid || submitted == false" color="danger" padding-left>
+                  Username is required
+                </p>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label floating color="primary">email</ion-label>
+                <ion-input [(ngModel)]="signup.email" name="email" type="text" #email="ngModel" required>
+                </ion-input>
+                <p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+                  Email is required
+                </p>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label floating color="primary">Passwod</ion-label>
+                <ion-input [(ngModel)]="signup.username" name="password" type="password" #password="ngModel" required>
+                </ion-input>
+                <p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+                  Password is required
+                </p>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <button margin-top block ion-button padding outline icon-start color="light">
+                Sign up
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+      <button ion-button clear color="light" (click)="goToSignInPage()">
+        I already have an account
+      </button>
+    </div>
+  </div>
+</ion-content>
